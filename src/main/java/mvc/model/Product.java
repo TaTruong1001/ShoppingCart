@@ -11,6 +11,7 @@ public class Product {
     private int productId;
     private String productName;
     private String poductDescription;
+    private double unitPrice;
     @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
     private List<OrderDetails> orderDetail;
 
@@ -38,6 +39,14 @@ public class Product {
         this.poductDescription = poductDescription;
     }
 
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
     public List<OrderDetails> getOrderDetail() {
         return orderDetail;
     }
@@ -52,6 +61,7 @@ public class Product {
                 "productId=" + productId +
                 ", productName='" + productName + '\'' +
                 ", poductDescription='" + poductDescription + '\'' +
+                ", unitPrice=" + unitPrice +
                 ", orderDetail=" + orderDetail.toString() +
                 '}';
     }
