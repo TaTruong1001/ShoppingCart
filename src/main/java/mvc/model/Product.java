@@ -10,7 +10,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productId;
     private String productName;
-    private String poductDescription;
+    private String productDescription;
     private double unitPrice;
     @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
     private List<OrderDetails> orderDetail;
@@ -31,12 +31,12 @@ public class Product {
         this.productName = productName;
     }
 
-    public String getPoductDescription() {
-        return poductDescription;
+    public String getProductDescription() {
+        return productDescription;
     }
 
-    public void setPoductDescription(String poductDescription) {
-        this.poductDescription = poductDescription;
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
     }
 
     public double getUnitPrice() {
@@ -60,7 +60,7 @@ public class Product {
         return "Product{" +
                 "productId=" + productId +
                 ", productName='" + productName + '\'' +
-                ", poductDescription='" + poductDescription + '\'' +
+                ", poductDescription='" + productDescription + '\'' +
                 ", unitPrice=" + unitPrice +
                 ", orderDetail=" + orderDetail.toString() +
                 '}';

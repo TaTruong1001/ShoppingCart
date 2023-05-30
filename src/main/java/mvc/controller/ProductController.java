@@ -23,9 +23,9 @@ public class ProductController {
     @Autowired
     ProductRepository productRepository;
     @RequestMapping(method = GET)
-    public String showBooks(Model model){
-        List<Product> products = (List<Product>) productRepository.findAll();
-        model.addAttribute("products", products);
+    public String showProducts(Model model){
+        List<Product> productList = (List<Product>) productRepository.findAll();
+        model.addAttribute("productList", productList);
         return "ProductList";
     }
 }
