@@ -7,48 +7,40 @@
 <style>
     <%@include file="/resources/css/main.css" %>
 </style>
-<jsp:include page="Header.jsp" />
+    <jsp:include page="Header.jsp" />
 
 <body>
 <div class="contain pt-10">
-    <!-- Input group -->
-    <form:form action="search" method="get">
-    <div class="d-flex ">
-        <div class="input-group w-auto">
-            <input name="searchInput" type="text" class="form-control" placeholder="Search input" aria-label="Search input"/>
-            <button class="btn btn-primary" type="submit"  data-mdb-ripple-color="dark">Search
-            </button>
-        </div>
-    </div>
-    </form:form>
-
     <div class="mt-10">
+        <h2>My Shopping Cart</h2>
         <p>
             <c:out value="${msg}" />
         </p>
-        <c:if test="${empty productList}">
+        <c:if test="${empty cartItem}">
         <p>No data</p>
         </c:if>
-        <c:if test="${not empty productList}">
+        <c:if test="${not empty cartItem}">
         <table class="table">
             <thead class="thead-dark">
             <tr>
-                <th scope="col">productId</th>
-                <th scope="col">productName</th>
-                <th scope="col">productDesciption</th>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Desciption</th>
                 <th scope="col">unitPrice</th>
+                <th scope="col">Quantity</th>
                 <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="product" items="${productList}" varStatus="e">
+            <c:forEach var="cartItem" items="${cartItem}" varStatus="e">
                 <tr>
-                    <td>${product.productId}</td>
-                    <td>${product.productName}</td>
-                    <td>${product.productDescription}</td>
-                    <td>${product.unitPrice }</td>
+                    <td>${cartItem.productId}</td>
+                    <td>${cartItem.productName}</td>
+                    <td>${cartItem.productDescription}</td>
+                    <td>${cartItem.unitPrice }</td>
+                    <td>${cartItem.orderDetails.quantity }</td>
                     <td><button class="btn btn-sm btn-primary"
-                                onclick="location.href='addCart/${product.productId}'">Add to cart</button></td>
+                                onclick="location.href='removeCart/${product.productId}'">Remove from cart</button></td>
                 </tr>
             </c:forEach>
             </tbody>
@@ -58,5 +50,4 @@
         <div>
         </div>
 </body>
-
 </html>

@@ -60,7 +60,7 @@ public class Product {
         return "Product{" +
                 "productId=" + productId +
                 ", productName='" + productName + '\'' +
-                ", poductDescription='" + productDescription + '\'' +
+                ", productDescription='" + productDescription + '\'' +
                 ", unitPrice=" + unitPrice +
                 ", orderDetail=" + orderDetail.toString() +
                 '}';

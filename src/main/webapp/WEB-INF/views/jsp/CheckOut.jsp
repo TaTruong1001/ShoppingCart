@@ -5,6 +5,7 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
+   <jsp:include page="Header.jsp" />
 <form>
     <div class="form-group">
         <label for="exampleInputUserName">Email address</label>
