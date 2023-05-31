@@ -10,44 +10,28 @@
     <jsp:include page="Header.jsp" />
 
 <body>
-<div class="contain pt-10">
-    <div class="mt-10">
-        <h2>My Shopping Cart</h2>
-        <p>
-            <c:out value="${msg}" />
-        </p>
-        <c:if test="${empty cartItem}">
-        <p>No data</p>
-        </c:if>
-        <c:if test="${not empty cartItem}">
-        <table class="table">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Desciption</th>
-                <th scope="col">unitPrice</th>
-                <th scope="col">Quantity</th>
-                <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach var="cartItem" items="${cartItem}" varStatus="e">
-                <tr>
-                    <td>${cartItem.productId}</td>
-                    <td>${cartItem.productName}</td>
-                    <td>${cartItem.productDescription}</td>
-                    <td>${cartItem.unitPrice }</td>
-                    <td>${cartItem.orderDetails.quantity }</td>
-                    <td><button class="btn btn-sm btn-primary"
-                                onclick="location.href='removeCart/${product.productId}'">Remove from cart</button></td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-        </c:if>
+   <table cellpadding="2" cellspacing="2" border="1">
+       <tr>
+           <th>Option</th>
+           <th>Id</th>
+           <th>Name</th>
+           <th>Price</th>
+           <th>Description</th>
+           <th>Quantity</th>
+           <th></th>
+       </tr>
+       <c:forEach var="it" items="${sessionScope.cart}">
+           <tr>
+               <th align="center">Remove</th>
+               <th>${it.product.productId}</th>
+               <th>${it.product.productName}</th>
+               <th>${it.product.unitPrice}</th>
+               <th>${it.product.productDescription}</th>
+               <th>${it.quantity}</th>
+               <th></th>
 
-        <div>
-        </div>
+           </tr>
+       </c:forEach>
+   </table>
 </body>
 </html>
